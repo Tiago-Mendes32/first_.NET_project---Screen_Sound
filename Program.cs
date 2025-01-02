@@ -48,7 +48,7 @@ void ExibirOpçõesMenu()
             AvaliarBanda();
             break;
         case 4:
-            Console.WriteLine("Você selecionou a opção: " + opcaoEscolhidaNumerica);
+            MostrarMediaDeUmaBunda();
             break;
         case 5:
             Console.WriteLine("Você selecionou a opção: " + opcaoEscolhidaNumerica);
@@ -137,4 +137,40 @@ void AvaliarBanda()
 
     Console.Clear();
     ExibirOpçõesMenu();
+}
+
+void MostrarMediaDeUmaBunda()
+{
+    Console.Clear();
+    ExibirTitulos("Média de uma banda");
+
+    Console.Write("Digite o nome da banda que deseja visualizar a média: ");
+    string banda = Console.ReadLine()!;
+
+    if (bandasRegistradas.ContainsKey(banda)){
+        double media = CalcularMedia(banda);
+
+        Console.WriteLine($"\nA nota média da banda {banda} é: {media}");
+
+        Console.WriteLine("\nAperte qualquer tecla para retornar ao menu");
+        Console.ReadKey();
+    }
+    else
+    {
+        Console.WriteLine("\nBanda não encontrada");
+        Console.WriteLine("\nAperte qualquer tecla para retornar ao menu");
+        Console.ReadKey();
+    }
+}
+
+double CalcularMedia(string nomeBanda)
+{
+    List<int>bandas = bandasRegistradas[nomeBanda];
+    int contador = 0;
+
+    foreach(int banda in bandas){
+        contador += banda;
+    }
+
+    return contador / bandas.Count();
 }
