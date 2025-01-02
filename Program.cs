@@ -131,7 +131,7 @@ void AvaliarBanda()
     else
     {
         Console.WriteLine($"O nome {nomeDaBanda} não corresponde a nenhuma banda cadastrada.");
-        Console.WriteLine("\nDigite uma tecla para retornar ao menu principal");
+        Console.WriteLine("\nDigite qualquer tecla para retornar ao menu principal");
         Console.ReadKey();
     }
 
